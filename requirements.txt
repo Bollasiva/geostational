@@ -1,0 +1,6 @@
+flask
+kafka-python
+pandas
+scikit-learn
+joblib
+influxdb-client

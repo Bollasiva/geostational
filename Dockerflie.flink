@@ -1,0 +1,17 @@
+# Start from the base Flink image
+FROM flink:1.17.0-scala_2.12
+
+# Set the FLINK_HOME environment variable
+ENV FLINK_HOME=/opt/flink
+
+# Change to the Flink home directory
+WORKDIR $FLINK_HOME
+
+# Download the required connector JARs
+RUN wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.17.0/flink-connector-kafka-1.17.0.jar \
+    -O $FLINK_HOME/lib/flink-connector-kafka-1.17.0.jar \
+ && wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-influxdb/1.2.0/flink-connector-influxdb-1.2.0.jar \
+    -O $FLINK_HOME/lib/flink-connector-influxdb-1.2.0.jar
+
+# Expose the Flink web UI port
+EXPOSE 8081
