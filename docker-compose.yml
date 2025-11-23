@@ -2,7 +2,7 @@
 services:
   # Zookeeper is a dependency for Kafka. It manages the cluster's state.
   zookeeper:
-    image: bitnami/zookeeper:3.9.2
+    image: bitnamilegacy/zookeeper:3.9.2
     container_name: zookeeper
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
@@ -11,7 +11,7 @@ services:
 
   # Kafka is the real-time data streaming message broker.
   kafka:
-    image: bitnami/kafka:3.6.1
+    image: bitnamilegacy/kafka:3.6.1
     container_name: kafka
     ports:
       - "9092:9092" # Port for connecting from your local machine (e.g., Python scripts)
